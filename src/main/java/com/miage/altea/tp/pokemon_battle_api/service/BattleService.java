@@ -1,6 +1,6 @@
-package com.miage.altea.tp.pokemon_type_api.service;
+package com.miage.altea.tp.pokemon_battle_api.service;
 
-import com.miage.altea.tp.pokemon_type_api.bo.Battle;
+import com.miage.altea.tp.pokemon_battle_api.bo.Battle;
 
 import java.util.List;
 

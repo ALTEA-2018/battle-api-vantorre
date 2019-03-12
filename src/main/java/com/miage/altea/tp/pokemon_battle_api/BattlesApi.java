@@ -1,4 +1,4 @@
-package com.miage.altea.tp.pokemon_type_api;
+package com.miage.altea.tp.pokemon_battle_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

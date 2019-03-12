@@ -1,4 +1,4 @@
-package com.miage.altea.tp.pokemon_type_api.bo;
+package com.miage.altea.tp.pokemon_battle_api.bo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

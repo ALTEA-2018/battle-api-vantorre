@@ -1,13 +1,13 @@
-package com.miage.altea.tp.pokemon_type_api.service;
+package com.miage.altea.tp.pokemon_battle_api.service;
 
-import com.miage.altea.tp.pokemon_type_api.bo.Battle;
-import com.miage.altea.tp.pokemon_type_api.bo.Trainer;
+import com.miage.altea.tp.pokemon_battle_api.bo.Battle;
+import com.miage.altea.tp.pokemon_battle_api.bo.Trainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import com.miage.altea.tp.pokemon_type_api.repository.BattleRepository;
+import com.miage.altea.tp.pokemon_battle_api.repository.BattleRepository;
 
 import java.util.List;
 
@@ -34,6 +34,10 @@ public class BattleServiceImpl implements BattleService {
     private BattleRepository battleRepository;
 
 
+    @Autowired
+    private PokemonTypeService pokemonTypeService;
+
+
     @Override
     public List<Battle> getAllBattles() {
         return battleRepository.getBattles();
@@ -50,6 +54,8 @@ public class BattleServiceImpl implements BattleService {
     }
 
     private Trainer getTrainer(String name){
-        return this.trainerApiRestTemplate.getForObject(this.trainerServiceUrl + "/trainers/" + name, Trainer.class);
+        Trainer res = this.trainerApiRestTemplate.getForObject(this.trainerServiceUrl + "/trainers/" + name, Trainer.class);
+        res.getTeam().forEach(pokemon -> pokemon.setPokemonTypeObject(pokemonTypeService.getPokemonType(pokemon.getPokemonType())));
+        return res;
     }
 }

@@ -1,4 +1,4 @@
-package com.miage.altea.tp.pokemon_type_api.config;
+package com.miage.altea.tp.pokemon_battle_api.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

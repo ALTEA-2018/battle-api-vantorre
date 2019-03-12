@@ -1,17 +1,18 @@
-package com.miage.altea.tp.pokemon_type_api.bo;
+package com.miage.altea.tp.pokemon_battle_api.bo;
+
 
 import lombok.Data;
 
-
-// TODO
 @Data
 public class Pokemon {
 
-    private int id; 
+    private int id;
 
-    private int pokemonType; 
+    private int pokemonType;
 
-    private int level; 
+    private PokemonType pokemonTypeObject;
+
+    private int level;
 
     public Pokemon() {
     }
