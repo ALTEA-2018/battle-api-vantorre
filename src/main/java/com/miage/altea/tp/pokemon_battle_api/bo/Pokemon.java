@@ -14,6 +14,8 @@ public class Pokemon {
 
     private int level;
 
+    private Stats currentStates;
+
     public Pokemon() {
     }
 

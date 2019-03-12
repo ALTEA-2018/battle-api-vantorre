@@ -16,4 +16,6 @@ public class Battle {
     private Trainer trainer1;
 
     private Trainer trainer2;
+
+    private int currentTrainer;
 }

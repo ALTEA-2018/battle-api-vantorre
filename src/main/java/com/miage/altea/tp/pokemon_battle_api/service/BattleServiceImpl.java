@@ -49,8 +49,12 @@ public class BattleServiceImpl implements BattleService {
     }
 
     @Override
-    public Integer createBattle(String trainer1, String trainer2) {
-        return battleRepository.create(Battle.builder().trainer1(getTrainer(trainer1)).trainer2(getTrainer(trainer2)).build());
+    public Integer createBattle(String trainer1Name, String trainer2Name) {
+        Trainer trainer1= getTrainer(trainer1Name);
+        Trainer trainer2= getTrainer(trainer2Name);
+        trainer1.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build()));
+        trainer2.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build()));
+        return battleRepository.create(Battle.builder().currentTrainer(1).trainer1(trainer1).trainer2(trainer2).build());
     }
 
     private Trainer getTrainer(String name){

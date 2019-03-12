@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/battles")
-public class TrainerController {
+public class BattleController {
 
     @Autowired
     private BattleService battleService;
