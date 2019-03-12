@@ -1,14 +1,14 @@
-package repository;
+package com.miage.altea.tp.pokemon_type_api.repository;
 
-import bo.Battle;
-import org.springframework.stereotype.Component;
+import com.miage.altea.tp.pokemon_type_api.bo.Battle;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component
+@Repository
 public class BattleRepositoryImpl implements BattleRepository {
 
     private Integer index;

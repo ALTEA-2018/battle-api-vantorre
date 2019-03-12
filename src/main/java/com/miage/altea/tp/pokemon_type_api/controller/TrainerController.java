@@ -1,9 +1,9 @@
-package controller;
+package com.miage.altea.tp.pokemon_type_api.controller;
 
-import bo.Battle;
+import com.miage.altea.tp.pokemon_type_api.bo.Battle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.BattleService;
+import com.miage.altea.tp.pokemon_type_api.service.BattleService;
 
 import java.util.List;
 

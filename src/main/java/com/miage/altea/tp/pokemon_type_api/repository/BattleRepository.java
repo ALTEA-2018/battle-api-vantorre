@@ -1,6 +1,6 @@
-package repository;
+package com.miage.altea.tp.pokemon_type_api.repository;
 
-import bo.Battle;
+import com.miage.altea.tp.pokemon_type_api.bo.Battle;
 
 import java.util.List;
 
