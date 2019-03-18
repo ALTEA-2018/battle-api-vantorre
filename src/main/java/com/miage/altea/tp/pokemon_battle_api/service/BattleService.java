@@ -11,7 +11,7 @@ public interface BattleService {
 
     Battle getBattle(Integer id);
 
-    Integer createBattle(String trainer1, String trainer2);
+    Battle createBattle(String trainer1, String trainer2);
 
     Battle attack(Integer id, String trainerName) throws NotYourTurnException, BattleFinishedException;
 }

@@ -28,7 +28,7 @@ public class BattleController {
     }
 
     @PostMapping(value = "/{trainer1}/{trainer2}")
-    Integer createBattle(@PathVariable String trainer1, @PathVariable String trainer2) {
+    Battle createBattle(@PathVariable String trainer1, @PathVariable String trainer2) {
         return this.battleService.createBattle(trainer1, trainer2);
     }
 

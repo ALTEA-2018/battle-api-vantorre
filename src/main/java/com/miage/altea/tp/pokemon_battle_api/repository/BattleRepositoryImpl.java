@@ -29,9 +29,9 @@ public class BattleRepositoryImpl implements BattleRepository {
     }
 
     @Override
-    public Integer create(Battle battle) {
+    public Battle create(Battle battle) {
         battle.setUuid(index);
         battles.put(index, battle);
-        return index++;
+        return getBattle(index++);
     }
 }

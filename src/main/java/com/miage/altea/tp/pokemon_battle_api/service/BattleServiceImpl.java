@@ -51,7 +51,7 @@ public class BattleServiceImpl implements BattleService {
     }
 
     @Override
-    public Integer createBattle(String trainer1Name, String trainer2Name) {
+    public Battle createBattle(String trainer1Name, String trainer2Name) {
         Trainer trainer1 = getTrainer(trainer1Name);
         Trainer trainer2 = getTrainer(trainer2Name);
         trainer1.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build(), pokemon.getLevel()));

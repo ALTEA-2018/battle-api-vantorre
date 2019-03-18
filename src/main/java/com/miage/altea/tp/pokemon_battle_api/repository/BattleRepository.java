@@ -10,5 +10,5 @@ public interface BattleRepository {
 
     List<Battle> getBattles();
 
-    Integer create(Battle battle);
+    Battle create(Battle battle);
 }
