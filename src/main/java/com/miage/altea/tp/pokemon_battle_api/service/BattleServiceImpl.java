@@ -80,8 +80,8 @@ public class BattleServiceImpl implements BattleService {
     }
 
     private void doFight(Pokemon attaquant, Pokemon defenseur) {
-        //TODO: calcul compliqué pour pas grand chose
-        defenseur.getCurrentStates().setHp(defenseur.getCurrentStates().getHp() - attaquant.getCurrentStates().getAttack());
+        Integer attaque = ((2 * attaquant.getLevel() / 5) + ( 2 * attaquant.getCurrentStates().getAttack() / defenseur.getCurrentStates().getDefense())) + 2;
+        defenseur.getCurrentStates().setHp(defenseur.getCurrentStates().getHp() - attaque);
     }
 
     private boolean itIsHisTurn(Battle battle, String trainerName) {
