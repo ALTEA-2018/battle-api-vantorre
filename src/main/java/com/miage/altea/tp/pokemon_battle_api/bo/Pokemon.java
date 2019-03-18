@@ -1,6 +1,8 @@
 package com.miage.altea.tp.pokemon_battle_api.bo;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import lombok.Data;
 
 @Data
@@ -31,6 +33,17 @@ public class Pokemon {
     public Pokemon(int pokemonType, int level) {
         this.pokemonType = pokemonType;
         this.level = level;
+    }
+
+
+    @JsonProperty("alive")
+    public boolean alive(){
+        return currentStates.getHp() >= 0;
+    }
+
+    @JsonProperty("ko")
+    public boolean ko(){
+        return !alive();
     }
 
 }
