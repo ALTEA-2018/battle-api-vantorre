@@ -55,8 +55,8 @@ public class BattleServiceImpl implements BattleService {
     public Integer createBattle(String trainer1Name, String trainer2Name) {
         Trainer trainer1= getTrainer(trainer1Name);
         Trainer trainer2= getTrainer(trainer2Name);
-        trainer1.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build()));
-        trainer2.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build()));
+        trainer1.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build(), pokemon.getLevel()));
+        trainer2.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build(), pokemon.getLevel()));
         return battleRepository.create(Battle.builder().currentTrainer(1).trainer1(trainer1).trainer2(trainer2).build());
     }
 
