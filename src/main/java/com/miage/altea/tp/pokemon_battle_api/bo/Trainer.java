@@ -25,4 +25,6 @@ public class Trainer {
 
     private String password;
 
+    private Boolean nextTurn;
+
 }

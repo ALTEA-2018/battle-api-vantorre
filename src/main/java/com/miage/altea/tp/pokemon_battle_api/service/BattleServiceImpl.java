@@ -56,7 +56,9 @@ public class BattleServiceImpl implements BattleService {
         Trainer trainer2 = getTrainer(trainer2Name);
         trainer1.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build(), pokemon.getLevel()));
         trainer2.getTeam().forEach(pokemon -> pokemon.setCurrentStates(pokemon.getPokemonTypeObject().getStats().toBuilder().build(), pokemon.getLevel()));
-        boolean trainer1Start = trainer1.getTeam().get(0).getCurrentStates().getSpeed() < trainer2.getTeam().get(0).getCurrentStates().getSpeed();
+        boolean trainer1Start = trainer1.getTeam().get(0).getCurrentStates().getSpeed() >= trainer2.getTeam().get(0).getCurrentStates().getSpeed();
+        trainer1.setNextTurn(trainer1Start);
+        trainer2.setNextTurn(!trainer1Start);
         return battleRepository.create(Battle.builder().currentTrainer((trainer1Start) ? 1 : 2).trainer1(trainer1).trainer2(trainer2).build());
     }
 
@@ -76,6 +78,8 @@ public class BattleServiceImpl implements BattleService {
         doFight(attaquant, defenseur);
 
         battle.setCurrentTrainer((battle.getCurrentTrainer() == 1) ? 2 : 1);
+        battle.getTrainer1().setNextTurn(!battle.getTrainer1().getNextTurn());
+        battle.getTrainer2().setNextTurn(!battle.getTrainer2().getNextTurn());
         return battle;
     }
 
